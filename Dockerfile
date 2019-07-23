@@ -1,4 +1,4 @@
-FROM wodkamichi/docker-magento2-apache-php:2.3
+FROM wodkamichi/magento2-apache-php:2.2
 MAINTAINER Fabrizio Balliano <fabrizio@fabrizioballiano.com>
 
 ADD crontab /crontab.www-data
