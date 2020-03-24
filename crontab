@@ -1,4 +1,6 @@
-*/1 * * * * /usr/local/bin/php /var/www/html/bin/magento cron:run
-*/1 * * * * /usr/local/bin/php /var/www/html/update/cron.php
-*/1 * * * * /usr/local/bin/php /var/www/html/bin/magento setup:cron:run
-*/1 * * * * /usr/local/bin/php /updatenodes.php
+# to be exactly as in https://devdocs.magento.com/guides/v2.3/config-guide/cli/config-cli-subcommands-cron.html
+
+* * * * * /usr/local/bin/php /var/www/html/bin/magento cron:run 2>&1 | grep -v "Ran jobs by schedule" >> /var/www/html/magento2/var/log/magento.cron.log
+* * * * * /usr/local/bin/php /var/www/html/update/cron.php >> /var/www/html/var/log/update.cron.log
+* * * * * /usr/local/bin/php /var/www/html/bin/magento setup:cron:run >> /var/www/html/var/log/setup.cron.log
+* * * * * /usr/local/bin/php /updatenodes.php
